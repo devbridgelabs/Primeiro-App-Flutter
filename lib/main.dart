@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:teste/home2_page.dart';
+import 'package:teste/home_botoes.dart';
 import 'package:teste/home_page.dart';
+import 'package:teste/paginas/categorias_page.dart';
+import 'package:teste/paginas/produtos_page.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: HomePage(),
-  ));
+  runApp(MaterialApp(home: HomeBotoes(), routes: {
+    '/produtos': (_) => ProdutosPage(),
+    '/categorias': (_) => CategoriasPage()
+  }));
 }
 
 class MyApp extends StatelessWidget {
