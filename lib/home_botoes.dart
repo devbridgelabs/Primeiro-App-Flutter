@@ -3,6 +3,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/home_page.dart';
+import 'package:teste/listas/listas_page.dart';
+import 'package:teste/listas/row_e_column_page.dart';
 import 'package:teste/paginas/brb/brb_page.dart';
 import 'package:teste/paginas/brb/brbhome_page.dart';
 import 'package:teste/paginas/categorias_page.dart';
@@ -26,6 +28,7 @@ class HomeBotoes extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
+            Image.asset('assets/images/brb-logo.png', width: 200),
             RaisedButton(
               onPressed: () async {
                 print('Antes');
@@ -97,6 +100,26 @@ class HomeBotoes extends StatelessWidget {
                 );
               },
               child: Text('Media Queries'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push<int>(
+                  MaterialPageRoute(
+                    builder: (_) => RowEColumnPage(),
+                  ),
+                );
+              },
+              child: Text('Row e Column'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push<int>(
+                  MaterialPageRoute(
+                    builder: (_) => ListasPage(),
+                  ),
+                );
+              },
+              child: Text('Listas'),
             ),
           ],
         ),
