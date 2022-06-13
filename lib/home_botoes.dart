@@ -6,6 +6,7 @@ import 'package:teste/home_page.dart';
 import 'package:teste/listas/carousel_page.dart';
 import 'package:teste/listas/listas_page.dart';
 import 'package:teste/listas/row_e_column_page.dart';
+import 'package:teste/new_pages/new_pages.dart';
 import 'package:teste/paginas/brb/brb_page.dart';
 import 'package:teste/paginas/brb/brbhome_page.dart';
 import 'package:teste/paginas/categorias_page.dart';
@@ -49,16 +50,14 @@ class HomeBotoes extends StatelessWidget {
               child: Text('BRB'),
             ),
             RaisedButton(
-              onPressed: () async {
-                print('Antes');
-                final idPessoa = await Navigator.of(context).push<int>(
+              onPressed: () {
+                Navigator.of(context).push<int>(
                   MaterialPageRoute(
-                    builder: (_) => BrbhomePage(),
+                    builder: (_) => NewPages(),
                   ),
                 );
-                print('Id retornado: $idPessoa');
               },
-              child: Text('Home BRB'),
+              child: Text('New Pages'),
             ),
             RaisedButton(
               onPressed: () {
