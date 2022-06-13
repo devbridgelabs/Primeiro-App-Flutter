@@ -1,12 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:teste/new_pages/responsividade/responsividade02_page.dart';
-import 'package:teste/new_pages/responsividade/responsividade03_page.dart';
-import 'package:teste/new_pages/responsividade/responsividade_page.dart';
+import 'package:teste/brb/brb_page.dart';
+import 'package:teste/brb/brbhome_page.dart';
 
-class NewPages extends StatelessWidget {
-  const NewPages({Key? key}) : super(key: key);
+class BrbBotoes extends StatelessWidget {
+  const BrbBotoes({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,31 +24,21 @@ class NewPages extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push<int>(
                   MaterialPageRoute(
-                    builder: (_) => ResponsividadePage(),
+                    builder: (_) => BrbPage(),
                   ),
                 );
               },
-              child: Text('Responsividade 01'),
+              child: Text('BRB Tela inicial'),
             ),
             RaisedButton(
               onPressed: () {
                 Navigator.of(context).push<int>(
                   MaterialPageRoute(
-                    builder: (_) => Responsividade02Page(),
+                    builder: (_) => BrbhomePage(),
                   ),
                 );
               },
-              child: Text('Responsividade 02'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => Responsividade03Page(),
-                  ),
-                );
-              },
-              child: Text('Responsividade 03'),
+              child: Text('BRB Home'),
             ),
           ],
         ),

@@ -2,13 +2,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:teste/brb/brb_botoes.dart';
 import 'package:teste/home_page.dart';
 import 'package:teste/listas/carousel_page.dart';
 import 'package:teste/listas/listas_page.dart';
 import 'package:teste/listas/row_e_column_page.dart';
 import 'package:teste/new_pages/new_pages.dart';
-import 'package:teste/paginas/brb/brb_page.dart';
-import 'package:teste/paginas/brb/brbhome_page.dart';
 import 'package:teste/paginas/categorias_page.dart';
 import 'package:teste/paginas/media_query_page.dart';
 import 'package:teste/paginas/pessoa_page.dart';
@@ -42,7 +41,7 @@ class HomeBotoes extends StatelessWidget {
                 print('Antes');
                 final idPessoa = await Navigator.of(context).push<int>(
                   MaterialPageRoute(
-                    builder: (_) => BrbPage(),
+                    builder: (_) => BrbBotoes(),
                   ),
                 );
                 print('Id retornado: $idPessoa');
