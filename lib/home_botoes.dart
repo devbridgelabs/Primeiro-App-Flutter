@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/home_page.dart';
+import 'package:teste/listas/carousel_page.dart';
 import 'package:teste/listas/listas_page.dart';
 import 'package:teste/listas/row_e_column_page.dart';
 import 'package:teste/paginas/brb/brb_page.dart';
@@ -28,7 +29,13 @@ class HomeBotoes extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            Image.asset('assets/images/brb-logo.png', width: 200),
+            Container(
+              margin: EdgeInsets.all(20),
+              child: Image.asset(
+                'assets/images/brb-logo.png',
+                width: 150,
+              ),
+            ),
             RaisedButton(
               onPressed: () async {
                 print('Antes');
@@ -120,6 +127,16 @@ class HomeBotoes extends StatelessWidget {
                 );
               },
               child: Text('Listas'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push<int>(
+                  MaterialPageRoute(
+                    builder: (_) => CarouselPage(),
+                  ),
+                );
+              },
+              child: Text('Carousel'),
             ),
           ],
         ),
