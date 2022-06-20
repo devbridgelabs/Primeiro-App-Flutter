@@ -18,15 +18,33 @@ class _Home2PageState extends State<Home2Page> {
       ),
       body: Column(
         children: [
-          Text('Alterando nome'),
-          // ignore: deprecated_member_use
-          FlatButton(
-            onPressed: () {
-              setState(() {
-                nome = '123 alt';
-              });
-            },
-            child: Text('Button'),
+          Column(
+            children: [
+              Text('Opção de título 1'),
+              // ignore: deprecated_member_use
+              FlatButton(
+                onPressed: () {
+                  setState(() {
+                    nome = 'Primeiro título';
+                  });
+                },
+                child: Text('Button'),
+              ),
+            ],
+          ),
+          Column(
+            children: [
+              Text('Opção de título 2'),
+              // ignore: deprecated_member_use
+              FlatButton(
+                onPressed: () {
+                  setState(() {
+                    nome = 'Segundo título';
+                  });
+                },
+                child: Text('Button'),
+              ),
+            ],
           ),
         ],
       ),

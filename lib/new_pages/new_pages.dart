@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:teste/new_pages/card/card_page.dart';
 import 'package:teste/new_pages/const_friend/const_friend_page.dart';
+import 'package:teste/new_pages/contador/contador_page.dart';
+import 'package:teste/new_pages/qr_code/qr_code_page.dart';
 import 'package:teste/new_pages/responsividade/responsividade02_page.dart';
 import 'package:teste/new_pages/responsividade/responsividade03_page.dart';
 import 'package:teste/new_pages/responsividade/responsividade_page.dart';
@@ -25,7 +27,7 @@ class NewPages extends StatelessWidget {
           children: [
             RaisedButton(
               onPressed: () {
-                Navigator.of(context).push<int>(
+                Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => ResponsividadePage(),
                   ),
@@ -35,7 +37,7 @@ class NewPages extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                Navigator.of(context).push<int>(
+                Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => Responsividade02Page(),
                   ),
@@ -45,7 +47,7 @@ class NewPages extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                Navigator.of(context).push<int>(
+                Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => Responsividade03Page(),
                   ),
@@ -55,7 +57,7 @@ class NewPages extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                Navigator.of(context).push<int>(
+                Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => CardPage(),
                   ),
@@ -65,13 +67,33 @@ class NewPages extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                Navigator.of(context).push<int>(
+                Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => ConstFriendPage(),
                   ),
                 );
               },
               child: Text('Const Friend'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ContadorPage(),
+                  ),
+                );
+              },
+              child: Text('Contador'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => QrCodePage(),
+                  ),
+                );
+              },
+              child: Text('Leitor de QrCode'),
             ),
           ],
         ),

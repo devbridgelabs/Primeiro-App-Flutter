@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/brb/brb_botoes.dart';
+import 'package:teste/home2_page.dart';
 import 'package:teste/home_page.dart';
 import 'package:teste/listas/carousel_page.dart';
 import 'package:teste/listas/listas_page.dart';
@@ -79,9 +80,13 @@ class HomeBotoes extends StatelessWidget {
             ),
             RaisedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/categorias');
+                Navigator.of(context).push<int>(
+                  MaterialPageRoute(
+                    builder: (_) => Home2Page(),
+                  ),
+                );
               },
-              child: Text('Categorias'),
+              child: Text('Alteração de título'),
             ),
             RaisedButton(
               onPressed: () async {

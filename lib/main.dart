@@ -4,6 +4,7 @@ import 'package:teste/home_botoes.dart';
 import 'package:teste/home_page.dart';
 import 'package:teste/paginas/categorias_page.dart';
 import 'package:teste/paginas/produtos_page.dart';
+import 'package:qrcode_reader/qrcode_reader.dart';
 
 void main() {
   runApp(MaterialApp(home: HomeBotoes(), routes: {
