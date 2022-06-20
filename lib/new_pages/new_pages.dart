@@ -1,6 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:teste/new_pages/card/card_page.dart';
+import 'package:teste/new_pages/const_friend/const_friend_page.dart';
 import 'package:teste/new_pages/responsividade/responsividade02_page.dart';
 import 'package:teste/new_pages/responsividade/responsividade03_page.dart';
 import 'package:teste/new_pages/responsividade/responsividade_page.dart';
@@ -50,6 +52,26 @@ class NewPages extends StatelessWidget {
                 );
               },
               child: Text('Responsividade 03'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push<int>(
+                  MaterialPageRoute(
+                    builder: (_) => CardPage(),
+                  ),
+                );
+              },
+              child: Text('Card'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push<int>(
+                  MaterialPageRoute(
+                    builder: (_) => ConstFriendPage(),
+                  ),
+                );
+              },
+              child: Text('Const Friend'),
             ),
           ],
         ),
