@@ -7,10 +7,14 @@ import 'package:teste/paginas/produtos_page.dart';
 import 'package:qrcode_reader/qrcode_reader.dart';
 
 void main() {
-  runApp(MaterialApp(home: HomeBotoes(), routes: {
-    '/produtos': (_) => ProdutosPage(),
-    '/categorias': (_) => CategoriasPage()
-  }));
+  runApp(MaterialApp(
+    home: HomeBotoes(),
+    routes: {
+      '/produtos': (_) => ProdutosPage(),
+      '/categorias': (_) => CategoriasPage()
+    },
+    debugShowCheckedModeBanner: false,
+  ));
 }
 
 class MyApp extends StatelessWidget {
