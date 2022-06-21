@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:teste/new_pages/card/card_page.dart';
 import 'package:teste/new_pages/const_friend/const_friend_page.dart';
 import 'package:teste/new_pages/contador/contador_page.dart';
+import 'package:teste/new_pages/conversor_de_moedas/conversor_de_moedas_page.dart';
 import 'package:teste/new_pages/qr_code/qr_code_page.dart';
 import 'package:teste/new_pages/responsividade/responsividade02_page.dart';
 import 'package:teste/new_pages/responsividade/responsividade03_page.dart';
@@ -94,6 +95,16 @@ class NewPages extends StatelessWidget {
                 );
               },
               child: Text('Leitor de QrCode'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ConversorDeMoedasPage(),
+                  ),
+                );
+              },
+              child: Text('Conversor de moedas'),
             ),
           ],
         ),
