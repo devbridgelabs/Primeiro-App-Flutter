@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:teste/crud/views/user_list.dart';
 import 'package:teste/new_pages/card/card_page.dart';
 import 'package:teste/new_pages/const_friend/const_friend_page.dart';
 import 'package:teste/new_pages/contador/contador_page.dart';
@@ -105,6 +106,16 @@ class NewPages extends StatelessWidget {
                 );
               },
               child: Text('Conversor de moedas'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => UserList(),
+                  ),
+                );
+              },
+              child: Text('CRUD'),
             ),
           ],
         ),
