@@ -9,7 +9,7 @@ class BrbhomePage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return new Container(
       decoration: new BoxDecoration(
-        color: Color.fromARGB(199, 20, 60, 169),
+        color: Color.fromARGB(255, 0, 43, 162),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,

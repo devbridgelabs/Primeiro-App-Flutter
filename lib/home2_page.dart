@@ -17,34 +17,42 @@ class _Home2PageState extends State<Home2Page> {
         title: Text(nome),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              Text('Opção de título 1'),
-              // ignore: deprecated_member_use
-              FlatButton(
-                onPressed: () {
-                  setState(() {
-                    nome = 'Primeiro título';
-                  });
-                },
-                child: Text('Button'),
+          Center(
+            child: Container(
+              margin: EdgeInsets.all(15),
+              child: Column(
+                children: [
+                  Text('Opção de título 1'),
+                  // ignore: deprecated_member_use
+                  FlatButton(
+                    onPressed: () {
+                      setState(() {
+                        nome = 'Primeiro título';
+                      });
+                    },
+                    child: Text('Button'),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-          Column(
-            children: [
-              Text('Opção de título 2'),
-              // ignore: deprecated_member_use
-              FlatButton(
-                onPressed: () {
-                  setState(() {
-                    nome = 'Segundo título';
-                  });
-                },
-                child: Text('Button'),
-              ),
-            ],
+          Center(
+            child: Column(
+              children: [
+                Text('Opção de título 2'),
+                // ignore: deprecated_member_use
+                FlatButton(
+                  onPressed: () {
+                    setState(() {
+                      nome = 'Segundo título';
+                    });
+                  },
+                  child: Text('Button'),
+                ),
+              ],
+            ),
           ),
         ],
       ),

@@ -11,11 +11,11 @@ class BrbPage extends StatelessWidget {
     return new Container(
       decoration: new BoxDecoration(color: Color.fromARGB(255, 0, 3, 94)),
       child: new Center(
-          child: Image(
-        image: NetworkImage(
-            'https://campanhas.brb.com.br/financiamentodelotes/images/Marca-BRB_Preferencial-Branca.png'),
-        width: size.width * 0.57,
-      )),
+        child: Image.asset(
+          'assets/images/brb-logo-branca.png',
+          width: size.height * 0.25,
+        ),
+      ),
     );
   }
 }

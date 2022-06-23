@@ -3,11 +3,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/brb/brb_botoes.dart';
+import 'package:teste/crud/views/user_list.dart';
 import 'package:teste/home2_page.dart';
 import 'package:teste/home_page.dart';
 import 'package:teste/listas/carousel_page.dart';
 import 'package:teste/listas/listas_page.dart';
 import 'package:teste/listas/row_e_column_page.dart';
+import 'package:teste/main.dart';
+import 'package:teste/new_pages/card/card_page.dart';
+import 'package:teste/new_pages/conversor_de_moedas/conversor_de_moedas_page.dart';
 import 'package:teste/new_pages/new_pages.dart';
 import 'package:teste/paginas/categorias_page.dart';
 import 'package:teste/paginas/media_query_page.dart';
@@ -21,20 +25,21 @@ class HomeBotoes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Navegacao'),
+        title: const Text('Home'),
       ),
       body: Container(
+        margin: EdgeInsets.all(0),
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             Container(
-              margin: EdgeInsets.all(20),
+              margin: EdgeInsets.all(0),
               child: Image.asset(
-                'assets/images/brb-logo.png',
-                width: 150,
+                'assets/images/bridge-labs-logo.png',
+                width: 170,
               ),
             ),
             RaisedButton(
@@ -53,73 +58,11 @@ class HomeBotoes extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push<int>(
                   MaterialPageRoute(
-                    builder: (_) => NewPages(),
-                  ),
-                );
-              },
-              child: Text('New Pages'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //   builder: (context) => ProdutosPage(),
-                // ));
-                // Navigator.of(context).pushAndRemoveUntil(
-                //     MaterialPageRoute(
-                //       builder: (context) => ProdutosPage(),
-                //     ),
-                //     (route) => false);
-
-                Navigator.of(context).pushNamed('/produtos');
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                  '/produtos',
-                  ModalRoute.withName('/'),
-                );
-              },
-              child: Text('Produtos'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push<int>(
-                  MaterialPageRoute(
                     builder: (_) => Home2Page(),
                   ),
                 );
               },
               child: Text('Alteração de título'),
-            ),
-            RaisedButton(
-              onPressed: () async {
-                print('Antes');
-                final idPessoa = await Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => PessoaPage(),
-                    settings: RouteSettings(arguments: 7),
-                  ),
-                );
-                print('Id retornado: $idPessoa');
-              },
-              child: Text('Pessoa'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => MediaQueryPage(),
-                  ),
-                );
-              },
-              child: Text('Media Queries'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => RowEColumnPage(),
-                  ),
-                );
-              },
-              child: Text('Row e Column'),
             ),
             RaisedButton(
               onPressed: () {
@@ -129,7 +72,7 @@ class HomeBotoes extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('Listas'),
+              child: Text('Lista'),
             ),
             RaisedButton(
               onPressed: () {
@@ -140,6 +83,56 @@ class HomeBotoes extends StatelessWidget {
                 );
               },
               child: Text('Carousel'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => CardPage(),
+                  ),
+                );
+              },
+              child: Text('Card'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => MyApp(),
+                  ),
+                );
+              },
+              child: Text('Contador'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ConversorDeMoedasPage(),
+                  ),
+                );
+              },
+              child: Text('Conversor de moedas'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => UserList(),
+                  ),
+                );
+              },
+              child: Text('CRUD'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push<int>(
+                  MaterialPageRoute(
+                    builder: (_) => NewPages(),
+                  ),
+                );
+              },
+              child: Text('Outros'),
             ),
           ],
         ),
