@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/brb/brb_botoes.dart';
+import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
 import 'package:teste/home2_page.dart';
 import 'package:teste/home_page.dart';
@@ -118,7 +119,7 @@ class HomeBotoes extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (_) => UserList(),
+                    builder: (_) => CrudPage(),
                   ),
                 );
               },
