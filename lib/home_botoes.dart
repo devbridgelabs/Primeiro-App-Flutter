@@ -18,6 +18,7 @@ import 'package:teste/paginas/categorias_page.dart';
 import 'package:teste/paginas/media_query_page.dart';
 import 'package:teste/paginas/pessoa_page.dart';
 import 'package:teste/paginas/produtos_page.dart';
+import 'package:teste/telas/telas_home.dart';
 
 class HomeBotoes extends StatelessWidget {
   const HomeBotoes({Key? key}) : super(key: key);
@@ -124,6 +125,16 @@ class HomeBotoes extends StatelessWidget {
                 );
               },
               child: Text('CRUD'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push<int>(
+                  MaterialPageRoute(
+                    builder: (_) => TelasHome(),
+                  ),
+                );
+              },
+              child: Text('Telas'),
             ),
             RaisedButton(
               onPressed: () {

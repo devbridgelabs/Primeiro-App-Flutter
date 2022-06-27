@@ -1,11 +1,15 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:teste/crud/models/user.dart';
+import 'package:teste/crud/provider/users.dart';
+
+final _form = GlobalKey<FormState>();
 
 class UserForm extends StatelessWidget {
   // const UserForm({Key? key}) : super(key: key);
-
-  final _form = GlobalKey<FormState>();
+  final Map<String, String> _formData = {};
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +23,9 @@ class UserForm extends StatelessWidget {
               final isValid = _form.currentState?.validate();
               if (isValid!) {
                 _form.currentState?.save();
+                // Provider.of<Users>(context).put(User(
+                //   id: _formData
+                // ))
                 Navigator.of(context).pop();
               }
             },
@@ -34,7 +41,7 @@ class UserForm extends StatelessWidget {
               TextFormField(
                 decoration: InputDecoration(labelText: 'Nome'),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
+                  if (value == null || value.trim().isEmpty) {
                     return 'Preencha este campo';
                   }
 
@@ -42,15 +49,15 @@ class UserForm extends StatelessWidget {
                     return 'Nome muito pequeno';
                   }
                 },
-                onSaved: (value) {
-                  print(value);
-                },
+                onSaved: (value) => _formData['name'] = value!,
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'E-mail'),
+                onSaved: (value) => _formData['email'] = value!,
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'URL do Avatar'),
+                onSaved: (value) => _formData['avatarUrl'] = value!,
               ),
             ],
           ),
