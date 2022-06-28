@@ -32,119 +32,189 @@ class HomeBotoes extends StatelessWidget {
       body: Container(
         margin: EdgeInsets.all(0),
         width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
+        child: ListView(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
-            Container(
-              margin: EdgeInsets.all(0),
-              child: Image.asset(
-                'assets/images/bridge-labs-logo.png',
-                width: 170,
+            Center(
+              child: Container(
+                margin: EdgeInsets.all(0),
+                child: Image.asset(
+                  'assets/images/bridge-labs-logo.png',
+                  width: 140,
+                ),
               ),
             ),
-            RaisedButton(
-              onPressed: () async {
-                print('Antes');
-                final idPessoa = await Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => BrbBotoes(),
-                  ),
-                );
-                print('Id retornado: $idPessoa');
-              },
-              child: Text('BRB'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () async {
+                    print('Antes');
+                    final idPessoa = await Navigator.of(context).push<int>(
+                      MaterialPageRoute(
+                        builder: (_) => BrbBotoes(),
+                      ),
+                    );
+                    print('Id retornado: $idPessoa');
+                  },
+                  child: Text('BRB'),
+                ),
+              ),
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => Home2Page(),
-                  ),
-                );
-              },
-              child: Text('Alteração de título'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push<int>(
+                      MaterialPageRoute(
+                        builder: (_) => Home2Page(),
+                      ),
+                    );
+                  },
+                  child: Text('Alteração de título'),
+                ),
+              ),
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => ListasPage(),
-                  ),
-                );
-              },
-              child: Text('Lista'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push<int>(
+                      MaterialPageRoute(
+                        builder: (_) => ListasPage(),
+                      ),
+                    );
+                  },
+                  child: Text('Lista'),
+                ),
+              ),
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => CarouselPage(),
-                  ),
-                );
-              },
-              child: Text('Carousel'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push<int>(
+                      MaterialPageRoute(
+                        builder: (_) => CarouselPage(),
+                      ),
+                    );
+                  },
+                  child: Text('Carousel'),
+                ),
+              ),
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => CardPage(),
-                  ),
-                );
-              },
-              child: Text('Card'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => CardPage(),
+                      ),
+                    );
+                  },
+                  child: Text('Card'),
+                ),
+              ),
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => MyApp(),
-                  ),
-                );
-              },
-              child: Text('Contador'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => MyApp(),
+                      ),
+                    );
+                  },
+                  child: Text('Contador'),
+                ),
+              ),
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => ConversorDeMoedasPage(),
-                  ),
-                );
-              },
-              child: Text('Conversor de moedas'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => ConversorDeMoedasPage(),
+                      ),
+                    );
+                  },
+                  child: Text('Conversor de moedas'),
+                ),
+              ),
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => CrudPage(),
-                  ),
-                );
-              },
-              child: Text('CRUD'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => CrudPage(),
+                      ),
+                    );
+                  },
+                  child: Text('CRUD'),
+                ),
+              ),
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => TelasHome(),
-                  ),
-                );
-              },
-              child: Text('Telas'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push<int>(
+                      MaterialPageRoute(
+                        builder: (_) => TelasHome(),
+                      ),
+                    );
+                  },
+                  child: Text('Telas'),
+                ),
+              ),
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push<int>(
-                  MaterialPageRoute(
-                    builder: (_) => NewPages(),
-                  ),
-                );
-              },
-              child: Text('Outros'),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 0, 0),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push<int>(
+                      MaterialPageRoute(
+                        builder: (_) => NewPages(),
+                      ),
+                    );
+                  },
+                  child: Text('Outros'),
+                ),
+              ),
             ),
           ],
         ),
