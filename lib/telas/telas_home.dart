@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:teste/telas/list_and_detail_page/main.dart';
 import 'package:teste/telas/material/app_bar_demo.dart';
 import 'package:teste/telas/material/banner_demo.dart';
 import 'package:teste/telas/material/bottom_app_bar_demo.dart';
@@ -12,6 +13,7 @@ import 'package:teste/telas/screens/login_screen_1.dart';
 import 'package:teste/telas/screens/login_screen_2.dart';
 import 'package:teste/telas/screens/login_screen_4.dart';
 import 'package:teste/telas/screens/login_screen_6.dart';
+import 'package:teste/telas/table_page.dart';
 
 class TelasHome extends StatelessWidget {
   const TelasHome({Key? key}) : super(key: key);
@@ -155,6 +157,40 @@ class TelasHome extends StatelessWidget {
                     );
                   },
                   child: Text('Login page 3'),
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 1, 7, 66),
+                minWidth: 240,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => TablePage(),
+                      ),
+                    );
+                  },
+                  child: Text('Tabela'),
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 1, 7, 66),
+                minWidth: 240,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => MyAppList(),
+                      ),
+                    );
+                  },
+                  child: Text('List'),
                 ),
               ),
             ),
