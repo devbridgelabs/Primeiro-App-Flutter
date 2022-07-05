@@ -23,9 +23,14 @@ class UserForm extends StatelessWidget {
               final isValid = _form.currentState?.validate();
               if (isValid!) {
                 _form.currentState?.save();
-                // Provider.of<Users>(context).put(User(
-                //   id: _formData
-                // ))
+                Provider.of<Users>(context, listen: false).put(
+                  User(
+                    id: _formData['id']!,
+                    name: _formData['name']!,
+                    email: _formData['email']!,
+                    avatarUrl: _formData['avatarUrl']!,
+                  ),
+                );
                 Navigator.of(context).pop();
               }
             },

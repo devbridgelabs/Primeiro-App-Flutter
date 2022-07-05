@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:teste/brb/brb_botoes.dart';
 import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
+import 'package:teste/crud2/crud2.dart';
 import 'package:teste/home2_page.dart';
 import 'package:teste/home_page.dart';
+import 'package:teste/lista_de_contatos/views/contact_list.dart';
 import 'package:teste/listas/carousel_page.dart';
 import 'package:teste/listas/listas_page.dart';
 import 'package:teste/listas/row_e_column_page.dart';
@@ -174,11 +176,28 @@ class HomeBotoes extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (_) => CrudPage(),
+                        builder: (_) => Crud2(),
                       ),
                     );
                   },
                   child: Text('CRUD'),
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => ContactList(),
+                      ),
+                    );
+                  },
+                  child: Text('Lista de contatos'),
                 ),
               ),
             ),

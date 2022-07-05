@@ -1,7 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
+import 'package:teste/lista_de_contatos/views/contact_list.dart';
 import 'package:teste/listas/row_e_column_page.dart';
 import 'package:teste/main.dart';
 import 'package:teste/new_pages/card/card_page.dart';
@@ -131,6 +133,16 @@ class NewPages extends StatelessWidget {
                 );
               },
               child: Text('Contador'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => CrudPage(),
+                  ),
+                );
+              },
+              child: Text('CRUD'),
             ),
           ],
         ),
