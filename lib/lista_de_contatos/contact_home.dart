@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste/lista_de_contatos/injection.dart';
 import 'package:teste/lista_de_contatos/views/contact_form.dart';
 import 'package:teste/lista_de_contatos/views/contact_list.dart';
 
@@ -10,6 +11,7 @@ class ContactHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    setupInjection();
     return MaterialApp(
       title: 'Home',
       routes: {

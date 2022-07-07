@@ -22,7 +22,7 @@ class UserForm extends StatelessWidget {
             onPressed: () {
               final isValid = _form.currentState?.validate();
               if (isValid!) {
-                _form.currentState?.save();
+                _form.currentState!.save();
                 Provider.of<Users>(context, listen: false).put(
                   User(
                     id: _formData['id']!,
