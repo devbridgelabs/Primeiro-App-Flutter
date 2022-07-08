@@ -7,7 +7,7 @@ import 'package:teste/paginas/categorias_page.dart';
 import 'package:teste/paginas/produtos_page.dart';
 
 void main() {
-  setupInjection();
+  // setupInjection();
   runApp(MaterialApp(
     home: HomeBotoes(),
     routes: {
