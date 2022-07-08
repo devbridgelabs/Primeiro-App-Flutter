@@ -8,6 +8,7 @@ import 'package:teste/crud/views/user_list.dart';
 import 'package:teste/crud2/crud2.dart';
 import 'package:teste/home2_page.dart';
 import 'package:teste/home_page.dart';
+import 'package:teste/jogo_da_velha/jogo_da_velha%5D.dart';
 import 'package:teste/lista_de_contatos/views/contact_list.dart';
 import 'package:teste/listas/carousel_page.dart';
 import 'package:teste/listas/listas_page.dart';
@@ -198,6 +199,23 @@ class HomeBotoes extends StatelessWidget {
                     );
                   },
                   child: Text('Lista de contatos'),
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => JogoDaVelha(),
+                      ),
+                    );
+                  },
+                  child: Text('Jogo da velha'),
                 ),
               ),
             ),
