@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
+import 'package:teste/jogo_da_velha/jogo_da_velha%5D.dart';
 import 'package:teste/lista_de_contatos/views/contact_list.dart';
 import 'package:teste/listas/row_e_column_page.dart';
 import 'package:teste/main.dart';
@@ -143,6 +144,16 @@ class NewPages extends StatelessWidget {
                 );
               },
               child: Text('CRUD'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => JogoDaVelha(),
+                  ),
+                );
+              },
+              child: Text('Jogo da velha'),
             ),
           ],
         ),

@@ -6,6 +6,7 @@ import 'package:teste/brb/brb_botoes.dart';
 import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
 import 'package:teste/crud2/crud2.dart';
+import 'package:teste/dblock_2/dblock_2_home.dart';
 import 'package:teste/home2_page.dart';
 import 'package:teste/home_page.dart';
 import 'package:teste/jogo_da_velha/jogo_da_velha%5D.dart';
@@ -209,13 +210,13 @@ class HomeBotoes extends StatelessWidget {
                 minWidth: 190,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.of(context).push(
+                    Navigator.of(context).push<int>(
                       MaterialPageRoute(
-                        builder: (_) => JogoDaVelha(),
+                        builder: (_) => TelasHome(),
                       ),
                     );
                   },
-                  child: Text('Jogo da velha'),
+                  child: Text('Telas'),
                 ),
               ),
             ),
@@ -228,11 +229,11 @@ class HomeBotoes extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push<int>(
                       MaterialPageRoute(
-                        builder: (_) => TelasHome(),
+                        builder: (_) => Dblock2Home(),
                       ),
                     );
                   },
-                  child: Text('Telas'),
+                  child: Text('Dblock 2'),
                 ),
               ),
             ),
