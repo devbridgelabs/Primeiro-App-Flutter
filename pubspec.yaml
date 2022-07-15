@@ -51,10 +51,12 @@ dependencies:
   vector_math: ^2.1.2
   shared_preferences: ^2.0.15
   dual_screen: ^1.0.3
-  get_it:
+  get_it: 5.0.6
   mobx: ^2.0.7+4
   flutter_mobx: ^2.0.6+1
-  flutter_polyline_points: ^1.0.0
+  flutter_login:
+  rxdart:
+  dio:
 
   provider:
 
@@ -64,9 +66,13 @@ dependencies:
   http:
   # Google maps flutter
   google_maps_flutter:
-  google_map_polyline: 
+  google_map_polyline_new: 
+  google_maps_flutter_web:
+  # flutter_google_places: 
+  google_maps_flutter_platform_interface:
   google_maps_webservice:
-  flutter_google_places: 
+  flutter_polyline_points:
+  location:
   
   json_serializable: ^6.3.1
 
@@ -103,6 +109,39 @@ flutter:
   assets:
   - assets/images/
   - assets/locations.json
+  - packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-Regular.ttf
+  - packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-Medium.ttf
+  - packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-Bold.ttf
+  - packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-Thin.ttf
+  - packages/flutter_gallery_assets/fonts/google_fonts/WorkSans-SemiBold.ttf
+  - packages/flutter_gallery_assets/reply/attachments/paris_1.jpg
+  - packages/flutter_gallery_assets/reply/attachments/paris_2.jpg
+  - packages/flutter_gallery_assets/reply/attachments/paris_3.jpg
+  - packages/flutter_gallery_assets/reply/attachments/paris_4.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_0.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_1.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_2.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_3.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_4.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_5.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_6.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_7.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_8.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_9.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_10.jpg
+  - packages/flutter_gallery_assets/reply/avatars/avatar_express.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_add_circle_outline.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_delete.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_drafts.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_error.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_folder.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_forward.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_inbox.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_send.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_star_on_background.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_star.png
+  - packages/flutter_gallery_assets/reply/icons/twotone_stars.png
+  - packages/flutter_gallery_assets/reply/reply_logo.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

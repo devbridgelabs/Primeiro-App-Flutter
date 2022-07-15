@@ -23,6 +23,7 @@ import 'package:teste/telas/screens/login_screen_6.dart';
 import 'package:teste/telas/shopping_1/Shopping1.dart';
 import 'package:teste/telas/shopping_2/Shopping2.dart';
 import 'package:teste/telas/table_page.dart';
+import 'package:teste/telas/template/app.dart';
 
 class TelasHome extends StatelessWidget {
   const TelasHome({Key? key}) : super(key: key);
@@ -61,6 +62,23 @@ class TelasHome extends StatelessWidget {
                     },
                     child: Text('App Bar'),
                   ),
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 1, 7, 66),
+                minWidth: 240,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => ReplyApp(),
+                      ),
+                    );
+                  },
+                  child: Text('Template'),
                 ),
               ),
             ),

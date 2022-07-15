@@ -7,6 +7,7 @@ import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
 import 'package:teste/crud2/crud2.dart';
 import 'package:teste/dblock_2/dblock_2_home.dart';
+import 'package:teste/dblock_2/login_page_dblock2.dart';
 import 'package:teste/home2_page.dart';
 import 'package:teste/home_page.dart';
 import 'package:teste/jogo_da_velha/jogo_da_velha%5D.dart';
@@ -23,6 +24,7 @@ import 'package:teste/paginas/media_query_page.dart';
 import 'package:teste/paginas/pessoa_page.dart';
 import 'package:teste/paginas/produtos_page.dart';
 import 'package:teste/telas/telas_home.dart';
+import 'package:teste/telas/template/app.dart';
 
 class HomeBotoes extends StatelessWidget {
   const HomeBotoes({Key? key}) : super(key: key);
@@ -34,6 +36,7 @@ class HomeBotoes extends StatelessWidget {
         title: const Text('Home'),
       ),
       body: Container(
+        color: Color.fromARGB(255, 255, 255, 255),
         margin: EdgeInsets.all(0),
         width: double.infinity,
         child: ListView(
@@ -45,6 +48,40 @@ class HomeBotoes extends StatelessWidget {
                 child: Image.asset(
                   'assets/images/bridge-labs-logo.png',
                   width: 140,
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push<int>(
+                      MaterialPageRoute(
+                        builder: (_) => LoginPageDblock2(),
+                      ),
+                    );
+                  },
+                  child: Text('Dblock 2'),
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push<int>(
+                      MaterialPageRoute(
+                        builder: (_) => ReplyApp(),
+                      ),
+                    );
+                  },
+                  child: Text('Template'),
                 ),
               ),
             ),
@@ -217,23 +254,6 @@ class HomeBotoes extends StatelessWidget {
                     );
                   },
                   child: Text('Telas'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).push<int>(
-                      MaterialPageRoute(
-                        builder: (_) => Dblock2Home(),
-                      ),
-                    );
-                  },
-                  child: Text('Dblock 2'),
                 ),
               ),
             ),

@@ -1,9 +1,16 @@
+// ignore_for_file: deprecated_member_use, prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:teste/dblock_2/distancia_entre_pontos.dart';
+import 'package:teste/dblock_2/google_maps_rastreamento/order_tracking_page.dart';
+import 'package:teste/dblock_2/login_page_dblock2.dart';
 import 'package:teste/dblock_2/marcadores.dart';
+import 'package:teste/dblock_2/rest_api/screens/home_rest_api.dart';
 import 'package:teste/dblock_2/rotas.dart';
 import 'package:teste/dblock_2/rotas2.dart';
+import 'package:teste/dblock_2/tabela/tabela.dart';
+import 'package:teste/dblock_2/test_page.dart';
 
 class Dblock2Home extends StatefulWidget {
   const Dblock2Home({Key? key}) : super(key: key);
@@ -36,7 +43,14 @@ class _Dblock2HomeState extends State<Dblock2Home> {
               itemBuilder: (context) {
                 return [
                   PopupMenuItem(
-                    child: RaisedButton(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       onPressed: () {
                         Navigator.of(context).push<int>(
                           MaterialPageRoute(
@@ -44,11 +58,32 @@ class _Dblock2HomeState extends State<Dblock2Home> {
                           ),
                         );
                       },
-                      child: Text('Marcadores'),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                left: 0,
+                                bottom: 0,
+                                right: 10,
+                                top: 0,
+                              ),
+                              child: Icon(Icons.bookmark_rounded)),
+                          Container(child: Text('Marcadores')),
+                        ],
+                      ),
                     ),
                   ),
                   PopupMenuItem(
-                    child: RaisedButton(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       onPressed: () {
                         Navigator.of(context).push<int>(
                           MaterialPageRoute(
@@ -56,11 +91,32 @@ class _Dblock2HomeState extends State<Dblock2Home> {
                           ),
                         );
                       },
-                      child: Text('Rotas'),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                left: 0,
+                                bottom: 0,
+                                right: 10,
+                                top: 0,
+                              ),
+                              child: Icon(Icons.add_road)),
+                          Container(child: Text('Rotas')),
+                        ],
+                      ),
                     ),
                   ),
                   PopupMenuItem(
-                    child: RaisedButton(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       onPressed: () {
                         Navigator.of(context).push<int>(
                           MaterialPageRoute(
@@ -68,36 +124,122 @@ class _Dblock2HomeState extends State<Dblock2Home> {
                           ),
                         );
                       },
-                      child: Text('Distância entre pontos'),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                left: 0,
+                                bottom: 0,
+                                right: 10,
+                                top: 0,
+                              ),
+                              child: Icon(Icons.map)),
+                          Container(child: Text('Distância entre pontos')),
+                        ],
+                      ),
                     ),
                   ),
                   PopupMenuItem(
-                    child: RaisedButton(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       onPressed: () {
                         Navigator.of(context).push<int>(
                           MaterialPageRoute(
-                            builder: (_) => Rotas2(),
+                            builder: (_) => OrderTrackingPage(),
                           ),
                         );
                       },
-                      child: Text('Rotas 2'),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                left: 0,
+                                bottom: 0,
+                                right: 10,
+                                top: 0,
+                              ),
+                              child: Icon(Icons.airport_shuttle_outlined)),
+                          Container(child: Text('Rastreamento ao vivo')),
+                        ],
+                      ),
                     ),
                   ),
-                  // PopupMenuItem(
-                  //   child: TextButton(
-                  //     style: TextButton.styleFrom(
-                  //       primary: Color.fromARGB(255, 0, 0, 0),
-                  //     ),
-                  //     onPressed: () {
-                  //       Navigator.of(context).push<int>(
-                  //         MaterialPageRoute(
-                  //           builder: (_) => Marcadores(),
-                  //         ),
-                  //       );
-                  //     },
-                  //     child: Text('Marcadores'),
-                  //   ),
-                  // ),
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).push<int>(
+                          MaterialPageRoute(
+                            builder: (_) => HomeRestApi(),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                left: 0,
+                                bottom: 0,
+                                right: 10,
+                                top: 0,
+                              ),
+                              child: Icon(Icons.contactless_rounded)),
+                          Container(child: Text('API Rest')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).push<int>(
+                          MaterialPageRoute(
+                            builder: (_) => Tabela(),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                left: 0,
+                                bottom: 0,
+                                right: 10,
+                                top: 0,
+                              ),
+                              child: Icon(Icons.table_chart_sharp)),
+                          Container(child: Text('Tabela')),
+                        ],
+                      ),
+                    ),
+                  ),
                 ];
               },
             )
@@ -122,23 +264,25 @@ class _Dblock2HomeState extends State<Dblock2Home> {
         },
       ),
       drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
         child: ListView(
-          // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.12,
+              height: MediaQuery.of(context).size.height * 0.125,
               child: const DrawerHeader(
+                padding: EdgeInsets.only(
+                  left: 7,
+                  bottom: 0,
+                  right: 0,
+                  top: 6,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
                 child: Text(
                   'DBlock 2',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 255, 255, 255)),
                 ),
@@ -151,6 +295,38 @@ class _Dblock2HomeState extends State<Dblock2Home> {
                   fontSize: 17,
                   color: Color.fromRGBO(0, 0, 0, 1),
                 ),
+              ),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                primary: Color.fromARGB(255, 0, 0, 0),
+                textStyle: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (_) => LoginPageDblock2(),
+                  ),
+                  (Route<dynamic> route) => false,
+                );
+              },
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                      padding: EdgeInsets.only(
+                        left: 0,
+                        bottom: 0,
+                        right: 10,
+                        top: 0,
+                      ),
+                      child: Icon(Icons.logout)),
+                  Container(child: Text('Sair')),
+                ],
               ),
             ),
           ],
@@ -168,7 +344,7 @@ class _Dblock2HomeState extends State<Dblock2Home> {
         position: showLocation, //position of marker
         infoWindow: InfoWindow(
           //popup info
-          title: 'Marker Title First ',
+          title: 'Local atual ',
           snippet: 'My Custom Subtitle',
         ),
         icon: BitmapDescriptor.defaultMarker, //Icon for Marker
@@ -191,11 +367,11 @@ class _Dblock2HomeState extends State<Dblock2Home> {
         //add third marker
         markerId: MarkerId(showLocation.toString()),
         position: LatLng(
-            -16.327382331451744, -48.943182668529616), //position of marker
+            -16.31228202359462, -48.946543928391016), //position of marker
         infoWindow: InfoWindow(
           //popup info
-          title: 'Marker Title Third ',
-          snippet: 'My Custom Subtitle',
+          title: 'Casa',
+          snippet: 'Minha casa',
         ),
         icon: BitmapDescriptor.defaultMarker, //Icon for Marker
       ));

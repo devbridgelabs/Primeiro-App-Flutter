@@ -5,7 +5,6 @@ import 'package:teste/home_page.dart';
 import 'package:teste/lista_de_contatos/injection.dart';
 import 'package:teste/paginas/categorias_page.dart';
 import 'package:teste/paginas/produtos_page.dart';
-import 'package:get_it/get_it.dart';
 
 void main() {
   // setupInjection();

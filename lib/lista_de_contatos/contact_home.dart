@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:teste/lista_de_contatos/injection.dart';
 import 'package:teste/lista_de_contatos/views/contact_form.dart';
 import 'package:teste/lista_de_contatos/views/contact_list.dart';
-import 'package:get_it/get_it.dart';
 
 class ContactHome extends StatelessWidget {
   static const CONTACT_LIST = '/contact-list';
