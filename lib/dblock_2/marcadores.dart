@@ -18,66 +18,259 @@ class _MarcadoresState extends State<Marcadores> {
     mapController = controller;
   }
 
+  late BitmapDescriptor myIcon;
+
+  @override
+  void initState() {
+    BitmapDescriptor.fromAssetImage(
+            // ignore: prefer_const_constructors
+            ImageConfiguration(size: Size(7, 7)),
+            'assets/images/car_icon.png')
+        .then((onValue) {
+      myIcon = onValue;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(
-            MediaQuery.of(context).size.height * 0.072,
+    return Stack(
+      children: <Widget>[
+        GoogleMap(
+          //Map widget from google_maps_flutter package
+          zoomGesturesEnabled: true, //enable Zoom in, out on map
+          initialCameraPosition: CameraPosition(
+            //innital position in map
+            target: showLocation, //initial position
+            zoom: 16, //initial zoom level
           ),
-          child: AppBar(title: Text('Mapa'))),
-      body: GoogleMap(
-        //Map widget from google_maps_flutter package
-        zoomGesturesEnabled: true, //enable Zoom in, out on map
-        initialCameraPosition: CameraPosition(
-          //innital position in map
-          target: showLocation, //initial position
-          zoom: 18, //initial zoom level
+          markers: getmarkers(), //markers to show on map
+          mapType: MapType.normal, //map type
+          onMapCreated: (controller) {
+            //method called when map is created
+            setState(() {
+              mapController = controller;
+            });
+          },
         ),
-        markers: getmarkers(), //markers to show on map
-        mapType: MapType.normal, //map type
-        onMapCreated: (controller) {
-          //method called when map is created
-          setState(() {
-            mapController = controller;
-          });
-        },
-      ),
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.12,
-              child: const DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                ),
-                child: Text(
-                  'DBlock 2',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 255, 255, 255)),
-                ),
+        Positioned(
+            top: 10.0,
+            right: 10,
+            child: PopupMenuButton<Text>(
+              icon: Icon(
+                Icons.filter_alt,
+                size: 50,
               ),
-            ),
-            ListTile(
-              title: const Text(
-                'Carro 1 - NKJ2I41',
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Color.fromRGBO(0, 0, 0, 1),
-                ),
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(Icons.manage_accounts)),
+                          Container(child: Text('Gestor')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(Icons.send_to_mobile_outlined)),
+                          Container(child: Text('Comandos')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(Icons.query_stats)),
+                          Container(child: Text('Indicadores')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(Icons.poll_outlined)),
+                          Container(child: Text('Relatórios')),
+                        ],
+                      ),
+                    ),
+                  ),
+                ];
+              },
+            )),
+        Positioned(
+            bottom: 40.0,
+            left: 10,
+            child: PopupMenuButton<Text>(
+              icon: Icon(
+                Icons.layers,
+                size: 50,
               ),
-            ),
-          ],
-        ),
-      ),
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(Icons.manage_accounts)),
+                          Container(child: Text('Gestor')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(Icons.send_to_mobile_outlined)),
+                          Container(child: Text('Comandos')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(Icons.query_stats)),
+                          Container(child: Text('Indicadores')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(Icons.poll_outlined)),
+                          Container(child: Text('Relatórios')),
+                        ],
+                      ),
+                    ),
+                  ),
+                ];
+              },
+            )),
+      ],
     );
   }
 
@@ -93,22 +286,8 @@ class _MarcadoresState extends State<Marcadores> {
           title: 'Marker Title First ',
           snippet: 'My Custom Subtitle',
         ),
-        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+        icon: BitmapDescriptor.defaultMarker,
       ));
-
-      markers.add(Marker(
-        //add second marker
-        markerId: MarkerId(showLocation.toString()),
-        position: LatLng(
-            -16.32715581595128, -48.942528209543106), //position of marker
-        infoWindow: InfoWindow(
-          //popup info
-          title: 'Marker Title Second ',
-          snippet: 'My Custom Subtitle',
-        ),
-        icon: BitmapDescriptor.defaultMarker, //Icon for Marker
-      ));
-
       markers.add(Marker(
         //add third marker
         markerId: MarkerId(showLocation.toString()),
@@ -128,130 +307,3 @@ class _MarcadoresState extends State<Marcadores> {
     return markers;
   }
 }
-
-// Scaffold(
-//       appBar: PreferredSize(
-//           preferredSize: Size.fromHeight(
-//             MediaQuery.of(context).size.height * 0.072,
-//           ),
-//           child: AppBar(title: Text('Mapa'))),
-//       body: const Center(
-//         child: Text('My Page!'),
-//       ),
-//       drawer: Drawer(
-//         // Add a ListView to the drawer. This ensures the user can scroll
-//         // through the options in the drawer if there isn't enough vertical
-//         // space to fit everything.
-//         child: ListView(
-//           // Important: Remove any padding from the ListView.
-//           padding: EdgeInsets.zero,
-//           children: [
-//             Container(
-//               height: MediaQuery.of(context).size.height * 0.162,
-//               child: const DrawerHeader(
-//                 decoration: BoxDecoration(
-//                   color: Colors.blue,
-//                 ),
-//                 child: Text(
-//                   'DBlock 2',
-//                   style: TextStyle(
-//                       fontSize: 20,
-//                       fontWeight: FontWeight.bold,
-//                       color: Color.fromARGB(255, 255, 255, 255)),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 1 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 2 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 3 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 4 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 5 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 6 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 7 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 1 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 8 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//             ListTile(
-//               title: const Text(
-//                 'Carro 9 - NKJ2I41',
-//                 style: TextStyle(
-//                   fontSize: 17,
-//                   color: Color.fromARGB(255, 0, 0, 0),
-//                 ),
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );

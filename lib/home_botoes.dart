@@ -58,10 +58,11 @@ class HomeBotoes extends StatelessWidget {
                 minWidth: 190,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.of(context).push<int>(
+                    Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
                         builder: (_) => LoginPageDblock2(),
                       ),
+                      (Route<dynamic> route) => false,
                     );
                   },
                   child: Text('Dblock 2'),
@@ -91,127 +92,6 @@ class HomeBotoes extends StatelessWidget {
                 buttonColor: Color.fromARGB(255, 0, 9, 88),
                 minWidth: 190,
                 child: RaisedButton(
-                  onPressed: () async {
-                    print('Antes');
-                    final idPessoa = await Navigator.of(context).push<int>(
-                      MaterialPageRoute(
-                        builder: (_) => BrbBotoes(),
-                      ),
-                    );
-                    print('Id retornado: $idPessoa');
-                  },
-                  child: Text('BRB'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).push<int>(
-                      MaterialPageRoute(
-                        builder: (_) => Home2Page(),
-                      ),
-                    );
-                  },
-                  child: Text('Alteração de título'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).push<int>(
-                      MaterialPageRoute(
-                        builder: (_) => ListasPage(),
-                      ),
-                    );
-                  },
-                  child: Text('Lista'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).push<int>(
-                      MaterialPageRoute(
-                        builder: (_) => CarouselPage(),
-                      ),
-                    );
-                  },
-                  child: Text('Carousel'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => CardPage(),
-                      ),
-                    );
-                  },
-                  child: Text('Card'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => MyApp(),
-                      ),
-                    );
-                  },
-                  child: Text('Contador'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => ConversorDeMoedasPage(),
-                      ),
-                    );
-                  },
-                  child: Text('Conversor de moedas'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
@@ -220,23 +100,6 @@ class HomeBotoes extends StatelessWidget {
                     );
                   },
                   child: Text('CRUD'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => ContactList(),
-                      ),
-                    );
-                  },
-                  child: Text('Lista de contatos'),
                 ),
               ),
             ),

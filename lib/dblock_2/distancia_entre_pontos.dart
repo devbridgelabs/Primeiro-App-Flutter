@@ -115,44 +115,37 @@ class _DistanciaEntrePontosState extends State<DistanciaEntrePontos> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Calculate Distance in Google Map"),
-          backgroundColor: Colors.blue,
+    return Stack(children: [
+      GoogleMap(
+        //Map widget from google_maps_flutter package
+        zoomGesturesEnabled: true, //enable Zoom in, out on map
+        initialCameraPosition: CameraPosition(
+          //innital position in map
+          target: startLocation, //initial position
+          zoom: 14.0, //initial zoom level
         ),
-        body: Stack(children: [
-          GoogleMap(
-            //Map widget from google_maps_flutter package
-            zoomGesturesEnabled: true, //enable Zoom in, out on map
-            initialCameraPosition: CameraPosition(
-              //innital position in map
-              target: startLocation, //initial position
-              zoom: 14.0, //initial zoom level
-            ),
-            markers: markers, //markers to show on map
-            polylines: Set<Polyline>.of(polylines.values), //polylines
-            mapType: MapType.normal, //map type
-            onMapCreated: (controller) {
-              //method called when map is created
-              setState(() {
-                mapController = controller;
-              });
-            },
-          ),
-          Positioned(
-              bottom: 200,
-              left: 50,
-              child: Container(
-                  child: Card(
-                child: Container(
-                    padding: EdgeInsets.all(20),
-                    child: Text(
-                        "Total Distance: " +
-                            distance.toStringAsFixed(2) +
-                            " KM",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold))),
-              )))
-        ]));
+        markers: markers, //markers to show on map
+        polylines: Set<Polyline>.of(polylines.values), //polylines
+        mapType: MapType.normal, //map type
+        onMapCreated: (controller) {
+          //method called when map is created
+          setState(() {
+            mapController = controller;
+          });
+        },
+      ),
+      Positioned(
+          bottom: 200,
+          left: 50,
+          child: Container(
+              child: Card(
+            child: Container(
+                padding: EdgeInsets.all(20),
+                child: Text(
+                    "Total Distance: " + distance.toStringAsFixed(2) + " KM",
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold))),
+          )))
+    ]);
   }
 }

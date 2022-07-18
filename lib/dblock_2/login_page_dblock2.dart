@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:teste/dblock_2/dblock_2_home.dart';
 import 'package:teste/home_botoes.dart';
@@ -9,25 +11,19 @@ class LoginPageDblock2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: MaterialButton(
-          onPressed: () {
-            Navigator.of(context).push<int>(
-              MaterialPageRoute(
-                builder: (_) => HomeBotoes(),
-              ),
-            );
-            print("Successul Login.");
-          },
-          color: Color.fromARGB(255, 0, 0, 0),
-          child: Text(
-            'Voltar',
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.white,
+          title: IconButton(
+        padding: EdgeInsets.all(0),
+        color: Color.fromARGB(255, 255, 255, 255),
+        icon: Icon(Icons.arrow_back, size: 22.0),
+        onPressed: () {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (_) => HomeBotoes(),
             ),
-          ),
-        ),
-      ),
+            (Route<dynamic> route) => false,
+          );
+        },
+      )),
       body: Padding(
         padding: const EdgeInsets.all(30),
         child: Center(
@@ -73,7 +69,7 @@ class LoginPageDblock2 extends StatelessWidget {
                         print('Forgotted Password!');
                       },
                       child: Text(
-                        'Forgot Password?',
+                        'Esqueceu a senha?',
                         style: TextStyle(
                           color: Colors.black.withOpacity(0.4),
                           fontSize: 12.0,
@@ -122,7 +118,7 @@ class LoginPageDblock2 extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '''Don't have an account? ''',
+                      '''Não tem uma conta? ''',
                       style: TextStyle(
                         color: Colors.black.withOpacity(0.5),
                         fontSize: 16.0,
@@ -132,7 +128,7 @@ class LoginPageDblock2 extends StatelessWidget {
                       onPressed: () {
                         print('Sign Up');
                       },
-                      child: Text('Register Now'),
+                      child: Text('Registrar agora'),
                     )
                   ],
                 ),

@@ -86,29 +86,23 @@ class _RotasState extends State<Rotas> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Route Driection in Google Map"),
-        backgroundColor: Colors.blue,
+    return GoogleMap(
+      //Map widget from google_maps_flutter package
+      zoomGesturesEnabled: true, //enable Zoom in, out on map
+      initialCameraPosition: CameraPosition(
+        //innital position in map
+        target: startLocation, //initial position
+        zoom: 16.0, //initial zoom level
       ),
-      body: GoogleMap(
-        //Map widget from google_maps_flutter package
-        zoomGesturesEnabled: true, //enable Zoom in, out on map
-        initialCameraPosition: CameraPosition(
-          //innital position in map
-          target: startLocation, //initial position
-          zoom: 16.0, //initial zoom level
-        ),
-        markers: markers, //markers to show on map
-        polylines: Set<Polyline>.of(polylines.values), //polylines
-        mapType: MapType.normal, //map type
-        onMapCreated: (controller) {
-          //method called when map is created
-          setState(() {
-            mapController = controller;
-          });
-        },
-      ),
+      markers: markers, //markers to show on map
+      polylines: Set<Polyline>.of(polylines.values), //polylines
+      mapType: MapType.normal, //map type
+      onMapCreated: (controller) {
+        //method called when map is created
+        setState(() {
+          mapController = controller;
+        });
+      },
     );
   }
 }

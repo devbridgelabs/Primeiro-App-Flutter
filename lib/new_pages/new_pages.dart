@@ -3,8 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
+import 'package:teste/home2_page.dart';
 import 'package:teste/jogo_da_velha/jogo_da_velha%5D.dart';
 import 'package:teste/lista_de_contatos/views/contact_list.dart';
+import 'package:teste/listas/carousel_page.dart';
+import 'package:teste/listas/listas_page.dart';
 import 'package:teste/listas/row_e_column_page.dart';
 import 'package:teste/main.dart';
 import 'package:teste/new_pages/card/card_page.dart';
@@ -33,6 +36,76 @@ class NewPages extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // ignore: prefer_const_literals_to_create_immutables
           children: [
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => MyApp(),
+                  ),
+                );
+              },
+              child: Text('Contador'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ConversorDeMoedasPage(),
+                  ),
+                );
+              },
+              child: Text('Conversor de moedas'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ContactList(),
+                  ),
+                );
+              },
+              child: Text('Lista de contatos'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => Home2Page(),
+                  ),
+                );
+              },
+              child: Text('Alteração de título'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ListasPage(),
+                  ),
+                );
+              },
+              child: Text('Lista'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => CarouselPage(),
+                  ),
+                );
+              },
+              child: Text('Carousel'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => JogoDaVelha(),
+                  ),
+                );
+              },
+              child: Text('Jogo da velha'),
+            ),
             RaisedButton(
               onPressed: () {
                 // Navigator.of(context).push(MaterialPageRoute(
@@ -144,16 +217,6 @@ class NewPages extends StatelessWidget {
                 );
               },
               child: Text('CRUD'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => JogoDaVelha(),
-                  ),
-                );
-              },
-              child: Text('Jogo da velha'),
             ),
           ],
         ),

@@ -1,6 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:teste/brb/brb_botoes.dart';
+import 'package:teste/new_pages/card/card_page.dart';
 import 'package:teste/telas/Pharmacy1.dart';
 import 'package:teste/telas/Welcom1.dart';
 import 'package:teste/telas/bloger/bloger1.dart';
@@ -79,6 +81,40 @@ class TelasHome extends StatelessWidget {
                     );
                   },
                   child: Text('Template'),
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 1, 7, 66),
+                minWidth: 240,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => CardPage(),
+                      ),
+                    );
+                  },
+                  child: Text('Card'),
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 1, 7, 66),
+                minWidth: 240,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => BrbBotoes(),
+                      ),
+                    );
+                  },
+                  child: Text('BRB'),
                 ),
               ),
             ),
