@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:teste/graficos/graficos.dart';
 
 class Marcadores extends StatefulWidget {
   const Marcadores({Key? key}) : super(key: key);
@@ -41,7 +42,7 @@ class _MarcadoresState extends State<Marcadores> {
           initialCameraPosition: CameraPosition(
             //innital position in map
             target: showLocation, //initial position
-            zoom: 16, //initial zoom level
+            zoom: 14, //initial zoom level
           ),
           markers: getmarkers(), //markers to show on map
           mapType: MapType.normal, //map type
@@ -62,78 +63,6 @@ class _MarcadoresState extends State<Marcadores> {
               ),
               itemBuilder: (context) {
                 return [
-                  PopupMenuItem(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Color.fromARGB(255, 0, 0, 0),
-                        textStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(
-                                right: 10,
-                              ),
-                              child: Icon(Icons.manage_accounts)),
-                          Container(child: Text('Gestor')),
-                        ],
-                      ),
-                    ),
-                  ),
-                  PopupMenuItem(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Color.fromARGB(255, 0, 0, 0),
-                        textStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(
-                                right: 10,
-                              ),
-                              child: Icon(Icons.send_to_mobile_outlined)),
-                          Container(child: Text('Comandos')),
-                        ],
-                      ),
-                    ),
-                  ),
-                  PopupMenuItem(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Color.fromARGB(255, 0, 0, 0),
-                        textStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(
-                                right: 10,
-                              ),
-                              child: Icon(Icons.query_stats)),
-                          Container(child: Text('Indicadores')),
-                        ],
-                      ),
-                    ),
-                  ),
                   PopupMenuItem(
                     child: TextButton(
                       style: TextButton.styleFrom(
@@ -180,6 +109,36 @@ class _MarcadoresState extends State<Marcadores> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      onPressed: () {
+                        Navigator.of(context).push<int>(
+                          MaterialPageRoute(
+                            builder: (_) => Graficos(),
+                          ),
+                        );
+                      },
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              padding: EdgeInsets.only(
+                                right: 10,
+                              ),
+                              child: Icon(Icons.poll_outlined)),
+                          Container(child: Text('Relatórios')),
+                        ],
+                      ),
+                    ),
+                  ),
+                  PopupMenuItem(
+                    child: TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Color.fromARGB(255, 0, 0, 0),
+                        textStyle: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       onPressed: () {},
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -243,30 +202,6 @@ class _MarcadoresState extends State<Marcadores> {
                       ),
                     ),
                   ),
-                  PopupMenuItem(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Color.fromARGB(255, 0, 0, 0),
-                        textStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(
-                                right: 10,
-                              ),
-                              child: Icon(Icons.poll_outlined)),
-                          Container(child: Text('Relatórios')),
-                        ],
-                      ),
-                    ),
-                  ),
                 ];
               },
             )),
@@ -283,8 +218,8 @@ class _MarcadoresState extends State<Marcadores> {
         position: showLocation, //position of marker
         infoWindow: InfoWindow(
           //popup info
-          title: 'Marker Title First ',
-          snippet: 'My Custom Subtitle',
+          title: 'Bridge Labs ',
+          snippet: 'Empresa',
         ),
         icon: BitmapDescriptor.defaultMarker,
       ));
@@ -292,11 +227,11 @@ class _MarcadoresState extends State<Marcadores> {
         //add third marker
         markerId: MarkerId(showLocation.toString()),
         position: LatLng(
-            -16.327382331451744, -48.943182668529616), //position of marker
+            -16.32394777158907, -48.948933767049596), //position of marker
         infoWindow: InfoWindow(
           //popup info
-          title: 'Marker Title Third ',
-          snippet: 'My Custom Subtitle',
+          title: 'Brasil Park Shopping',
+          snippet: 'Shopping',
         ),
         icon: BitmapDescriptor.defaultMarker, //Icon for Marker
       ));

@@ -1,8 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:teste/acesso_camera/camera_home_page.dart';
 import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
+import 'package:teste/email_e_sms/email_e_sms.dart';
+import 'package:teste/graficos/graficos.dart';
 import 'package:teste/home2_page.dart';
 import 'package:teste/jogo_da_velha/jogo_da_velha%5D.dart';
 import 'package:teste/lista_de_contatos/views/contact_list.dart';
@@ -30,12 +33,42 @@ class NewPages extends StatelessWidget {
         title: const Text(''),
       ),
       body: Container(
+        color: Color.fromARGB(255, 255, 255, 255),
+        margin: EdgeInsets.all(0),
         width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => EmailESms(),
+                  ),
+                );
+              },
+              child: Text('Email, whats, sms, etc'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => Graficos(),
+                  ),
+                );
+              },
+              child: Text('Graficos'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => CameraHomePage(),
+                  ),
+                );
+              },
+              child: Text('Tirar foto'),
+            ),
             RaisedButton(
               onPressed: () {
                 Navigator.of(context).push(

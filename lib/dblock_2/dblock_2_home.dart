@@ -4,6 +4,7 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:teste/crud3/car_crud_home.dart';
 import 'package:teste/dblock_2/distancia_entre_pontos.dart';
 import 'package:teste/dblock_2/google_maps_rastreamento/order_tracking_page.dart';
 import 'package:teste/dblock_2/login_page_dblock2.dart';
@@ -15,6 +16,7 @@ import 'package:teste/dblock_2/rotas.dart';
 import 'package:teste/dblock_2/rotas2.dart';
 import 'package:teste/dblock_2/tabela/tabela.dart';
 import 'package:teste/dblock_2/test_page.dart';
+import 'package:teste/email_e_sms/email_e_sms.dart';
 
 class Dblock2Home extends StatefulWidget {
   const Dblock2Home({Key? key}) : super(key: key);
@@ -176,11 +178,9 @@ class _Dblock2HomeState extends State<Dblock2Home> {
           },
           children: <Widget>[
             Marcadores(),
-            Tabela(),
+            CarCrudHome(),
             DistanciaEntrePontos(),
-            Container(
-              color: Colors.blue,
-            ),
+            EmailESms(),
           ],
         ),
       ),
@@ -197,8 +197,7 @@ class _Dblock2HomeState extends State<Dblock2Home> {
               title: Text('Veículos'), icon: Icon(Icons.content_paste)),
           BottomNavyBarItem(
               title: Text('Distância entre'), icon: Icon(Icons.speed)),
-          BottomNavyBarItem(
-              title: Text('Item Four'), icon: Icon(Icons.settings)),
+          BottomNavyBarItem(title: Text('Chat'), icon: Icon(Icons.chat)),
         ],
       ),
       drawer: Drawer(

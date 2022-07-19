@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:teste/acesso_camera/camera_home_page.dart';
 
 class Conta extends StatelessWidget {
   const Conta({Key? key}) : super(key: key);
@@ -29,6 +30,69 @@ class Conta extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Center(
+              child: Container(
+                margin: EdgeInsets.all(0),
+                child: Image.asset(
+                  'assets/images/person.png',
+                  width: 140,
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(
+                  bottom: 45,
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(
+                        left: 0,
+                        bottom: 0,
+                        right: 0,
+                        top: 0,
+                      ),
+                      child: TextButton(
+                          onPressed: () {
+                            Navigator.of(context).push<int>(
+                              MaterialPageRoute(
+                                builder: (_) => CameraHomePage(),
+                              ),
+                            );
+                          },
+                          child: Text('Alterar foto de perfil',
+                              style: TextStyle(
+                                  fontSize: 21,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 0, 18, 131)))),
+                    ),
+                    //Text('Alterar foto de perfil',
+                    //     style: TextStyle(
+                    //         fontSize: 21,
+                    //         fontWeight: FontWeight.bold,
+                    //         color: Color.fromARGB(255, 0, 18, 131)))),
+                    Container(
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.of(context).push<int>(
+                            MaterialPageRoute(
+                              builder: (_) => CameraHomePage(),
+                            ),
+                          );
+                        },
+                        icon: Icon(
+                          Icons.edit,
+                          color: Color.fromARGB(255, 0, 18, 131),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
             Text('Nome:', style: label),
             Padding(
               padding: const EdgeInsets.only(

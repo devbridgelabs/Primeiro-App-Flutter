@@ -2,12 +2,16 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:teste/acesso_camera/camera_home_page.dart';
 import 'package:teste/brb/brb_botoes.dart';
 import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
 import 'package:teste/crud2/crud2.dart';
+import 'package:teste/crud3/car_crud_home.dart';
 import 'package:teste/dblock_2/dblock_2_home.dart';
 import 'package:teste/dblock_2/login_page_dblock2.dart';
+import 'package:teste/email_e_sms/email_e_sms.dart';
+import 'package:teste/graficos/graficos.dart';
 import 'package:teste/home2_page.dart';
 import 'package:teste/home_page.dart';
 import 'package:teste/jogo_da_velha/jogo_da_velha%5D.dart';
@@ -100,6 +104,23 @@ class HomeBotoes extends StatelessWidget {
                     );
                   },
                   child: Text('CRUD'),
+                ),
+              ),
+            ),
+            Center(
+              child: ButtonTheme(
+                textTheme: ButtonTextTheme.primary,
+                buttonColor: Color.fromARGB(255, 0, 9, 88),
+                minWidth: 190,
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.of(context).push<int>(
+                      MaterialPageRoute(
+                        builder: (_) => CarCrudHome(),
+                      ),
+                    );
+                  },
+                  child: Text('CRUD 2'),
                 ),
               ),
             ),

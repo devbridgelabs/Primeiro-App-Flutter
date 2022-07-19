@@ -59,6 +59,11 @@ dependencies:
   dio:
   curved_navigation_bar:
   bottom_navy_bar:
+  image_picker:
+  camera: ^0.9.4+19
+  table_calendar: ^2.1.0
+  graphic:
+  quiver: ^3.0.1+1
   provider:
 
   # The following adds the Cupertino Icons font to your application.
