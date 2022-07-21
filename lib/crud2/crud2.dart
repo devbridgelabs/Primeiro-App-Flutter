@@ -76,14 +76,14 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   TextField(
                     controller: _titleController,
-                    decoration: const InputDecoration(hintText: 'Título'),
+                    decoration: const InputDecoration(hintText: 'Carro'),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   TextField(
                     controller: _descriptionController,
-                    decoration: const InputDecoration(hintText: 'Descrição'),
+                    decoration: const InputDecoration(hintText: 'Placa'),
                   ),
                   const SizedBox(
                     height: 20,
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                       // Fecha a folha inferior
                       Navigator.of(context).pop();
                     },
-                    child: Text(id == null ? 'Create New' : 'Update'),
+                    child: Text(id == null ? 'Cadastrar' : 'Atualizar'),
                   )
                 ],
               ),

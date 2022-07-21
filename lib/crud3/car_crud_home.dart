@@ -49,7 +49,7 @@ class _CarCrudHomeState extends State<CarCrudHome> {
           tabs: [
             Tab(
               icon: Icon(
-                Icons.table_chart_sharp,
+                Icons.assignment,
                 color: Color.fromARGB(255, 0, 0, 0),
               ),
             ),

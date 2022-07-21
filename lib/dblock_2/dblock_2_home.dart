@@ -17,6 +17,8 @@ import 'package:teste/dblock_2/rotas2.dart';
 import 'package:teste/dblock_2/tabela/tabela.dart';
 import 'package:teste/dblock_2/test_page.dart';
 import 'package:teste/email_e_sms/email_e_sms.dart';
+import 'package:teste/map_laucher/map_laucher_demo.dart';
+import 'package:teste/map_laucher/show_directions.dart';
 
 class Dblock2Home extends StatefulWidget {
   const Dblock2Home({Key? key}) : super(key: key);
@@ -179,7 +181,7 @@ class _Dblock2HomeState extends State<Dblock2Home> {
           children: <Widget>[
             Marcadores(),
             CarCrudHome(),
-            DistanciaEntrePontos(),
+            ShowDirections(),
             EmailESms(),
           ],
         ),
@@ -195,8 +197,7 @@ class _Dblock2HomeState extends State<Dblock2Home> {
               title: Text('Localização'), icon: Icon(Icons.room_outlined)),
           BottomNavyBarItem(
               title: Text('Veículos'), icon: Icon(Icons.content_paste)),
-          BottomNavyBarItem(
-              title: Text('Distância entre'), icon: Icon(Icons.speed)),
+          BottomNavyBarItem(title: Text('Rotas'), icon: Icon(Icons.directions)),
           BottomNavyBarItem(title: Text('Chat'), icon: Icon(Icons.chat)),
         ],
       ),

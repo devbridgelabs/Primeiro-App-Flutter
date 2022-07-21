@@ -3,6 +3,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:teste/acesso_camera/camera_home_page.dart';
+import 'package:teste/assinatura/assinatura.dart';
+
 import 'package:teste/brb/brb_botoes.dart';
 import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
@@ -15,11 +17,16 @@ import 'package:teste/graficos/graficos.dart';
 import 'package:teste/home2_page.dart';
 import 'package:teste/home_page.dart';
 import 'package:teste/jogo_da_velha/jogo_da_velha%5D.dart';
+
 import 'package:teste/lista_de_contatos/views/contact_list.dart';
 import 'package:teste/listas/carousel_page.dart';
 import 'package:teste/listas/listas_page.dart';
 import 'package:teste/listas/row_e_column_page.dart';
+import 'package:teste/login/login.dart';
+
 import 'package:teste/main.dart';
+import 'package:teste/map_laucher/map_laucher_demo.dart';
+
 import 'package:teste/new_pages/card/card_page.dart';
 import 'package:teste/new_pages/conversor_de_moedas/conversor_de_moedas_page.dart';
 import 'package:teste/new_pages/new_pages.dart';
@@ -27,6 +34,9 @@ import 'package:teste/paginas/categorias_page.dart';
 import 'package:teste/paginas/media_query_page.dart';
 import 'package:teste/paginas/pessoa_page.dart';
 import 'package:teste/paginas/produtos_page.dart';
+import 'package:teste/rotas_maps/rotas3/rotas3.dart';
+import 'package:teste/rotas_maps/rotas_maps.dart';
+
 import 'package:teste/telas/telas_home.dart';
 import 'package:teste/telas/template/app.dart';
 
@@ -80,23 +90,6 @@ class HomeBotoes extends StatelessWidget {
                 minWidth: 190,
                 child: RaisedButton(
                   onPressed: () {
-                    Navigator.of(context).push<int>(
-                      MaterialPageRoute(
-                        builder: (_) => ReplyApp(),
-                      ),
-                    );
-                  },
-                  child: Text('Template'),
-                ),
-              ),
-            ),
-            Center(
-              child: ButtonTheme(
-                textTheme: ButtonTextTheme.primary,
-                buttonColor: Color.fromARGB(255, 0, 9, 88),
-                minWidth: 190,
-                child: RaisedButton(
-                  onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (_) => Crud2(),
@@ -116,11 +109,11 @@ class HomeBotoes extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push<int>(
                       MaterialPageRoute(
-                        builder: (_) => CarCrudHome(),
+                        builder: (_) => RotasMaps(),
                       ),
                     );
                   },
-                  child: Text('CRUD 2'),
+                  child: Text('Rotas'),
                 ),
               ),
             ),

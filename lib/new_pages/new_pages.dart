@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:teste/acesso_camera/camera_home_page.dart';
 import 'package:teste/crud/crud_page.dart';
 import 'package:teste/crud/views/user_list.dart';
+import 'package:teste/crud3/car_crud_home.dart';
 import 'package:teste/email_e_sms/email_e_sms.dart';
 import 'package:teste/graficos/graficos.dart';
 import 'package:teste/home2_page.dart';
@@ -13,6 +14,7 @@ import 'package:teste/listas/carousel_page.dart';
 import 'package:teste/listas/listas_page.dart';
 import 'package:teste/listas/row_e_column_page.dart';
 import 'package:teste/main.dart';
+import 'package:teste/map_laucher/map_laucher_demo.dart';
 import 'package:teste/new_pages/card/card_page.dart';
 import 'package:teste/new_pages/const_friend/const_friend_page.dart';
 import 'package:teste/new_pages/contador/contador_page.dart';
@@ -22,6 +24,7 @@ import 'package:teste/new_pages/responsividade/responsividade03_page.dart';
 import 'package:teste/new_pages/responsividade/responsividade_page.dart';
 import 'package:teste/paginas/media_query_page.dart';
 import 'package:teste/paginas/pessoa_page.dart';
+import 'package:teste/rotas_maps/rotas3/rotas3.dart';
 
 class NewPages extends StatelessWidget {
   const NewPages({Key? key}) : super(key: key);
@@ -39,6 +42,16 @@ class NewPages extends StatelessWidget {
         child: ListView(
           // ignore: prefer_const_literals_to_create_immutables
           children: [
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => MapLauncherDemo(),
+                  ),
+                );
+              },
+              child: Text('Rotas maps'),
+            ),
             RaisedButton(
               onPressed: () {
                 Navigator.of(context).push(
@@ -113,6 +126,26 @@ class NewPages extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
+                    builder: (_) => CarCrudHome(),
+                  ),
+                );
+              },
+              child: Text('CRUD de carros'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => Rotas3(),
+                  ),
+                );
+              },
+              child: Text('Rotas (n funciona)'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
                     builder: (_) => ListasPage(),
                   ),
                 );
@@ -128,6 +161,16 @@ class NewPages extends StatelessWidget {
                 );
               },
               child: Text('Carousel'),
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => CrudPage(),
+                  ),
+                );
+              },
+              child: Text('CRUD'),
             ),
             RaisedButton(
               onPressed: () {
@@ -240,16 +283,6 @@ class NewPages extends StatelessWidget {
                 );
               },
               child: Text('Contador'),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => CrudPage(),
-                  ),
-                );
-              },
-              child: Text('CRUD'),
             ),
           ],
         ),

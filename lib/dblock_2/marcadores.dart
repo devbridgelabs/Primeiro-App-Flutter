@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:intl/intl.dart';
+import 'package:teste/assinatura/assinatura.dart';
+import 'package:teste/datapicker/datapicker.dart';
 import 'package:teste/graficos/graficos.dart';
 
 class Marcadores extends StatefulWidget {
@@ -21,8 +24,13 @@ class _MarcadoresState extends State<Marcadores> {
 
   late BitmapDescriptor myIcon;
 
+  TextEditingController dateInput = TextEditingController();
+  TextEditingController dateInput2 = TextEditingController();
+
   @override
   void initState() {
+    dateInput.text = "";
+    dateInput2.text = "";
     BitmapDescriptor.fromAssetImage(
             // ignore: prefer_const_constructors
             ImageConfiguration(size: Size(7, 7)),
@@ -64,25 +72,83 @@ class _MarcadoresState extends State<Marcadores> {
               itemBuilder: (context) {
                 return [
                   PopupMenuItem(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Color.fromARGB(255, 0, 0, 0),
-                        textStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 1.0,
+                      padding: EdgeInsets.all(0),
+                      height: MediaQuery.of(context).size.height * 0.2,
+                      child: Column(
                         children: [
-                          Container(
-                              padding: EdgeInsets.only(
-                                right: 10,
-                              ),
-                              child: Icon(Icons.poll_outlined)),
-                          Container(child: Text('Relatórios')),
+                          Center(
+                            child: TextField(
+                              controller: dateInput,
+                              //editing controller of this TextField
+                              decoration: InputDecoration(
+                                  icon: Icon(Icons
+                                      .calendar_today), //icon of text field
+                                  labelText:
+                                      "Data inicial" //label text of field
+                                  ),
+                              readOnly: true,
+                              //set it true, so that user will not able to edit text
+                              onTap: () async {
+                                DateTime? pickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(1950),
+                                    //DateTime.now() - not to allow to choose before today.
+                                    lastDate: DateTime(2100));
+
+                                if (pickedDate != null) {
+                                  print(
+                                      pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                                  String formattedDate =
+                                      DateFormat('dd-MM-yyyy')
+                                          .format(pickedDate);
+                                  print(
+                                      formattedDate); //formatted date output using intl package =>  2021-03-16
+                                  setState(() {
+                                    dateInput.text =
+                                        formattedDate; //set output date to TextField value.
+                                  });
+                                } else {}
+                              },
+                            ),
+                          ),
+                          Center(
+                            child: TextField(
+                              controller: dateInput2,
+                              //editing controller of this TextField
+                              decoration: InputDecoration(
+                                  icon: Icon(Icons
+                                      .calendar_today), //icon of text field
+                                  labelText: "Data final" //label text of field
+                                  ),
+                              readOnly: true,
+                              //set it true, so that user will not able to edit text
+                              onTap: () async {
+                                DateTime? pickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: DateTime.now(),
+                                    firstDate: DateTime(1950),
+                                    //DateTime.now() - not to allow to choose before today.
+                                    lastDate: DateTime(2100));
+
+                                if (pickedDate != null) {
+                                  print(
+                                      pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                                  String formattedDate =
+                                      DateFormat('dd-MM-yyyy')
+                                          .format(pickedDate);
+                                  print(
+                                      formattedDate); //formatted date output using intl package =>  2021-03-16
+                                  setState(() {
+                                    dateInput2.text =
+                                        formattedDate; //set output date to TextField value.
+                                  });
+                                } else {}
+                              },
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -139,7 +205,13 @@ class _MarcadoresState extends State<Marcadores> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push<int>(
+                          MaterialPageRoute(
+                            builder: (_) => Assinatura(),
+                          ),
+                        );
+                      },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -148,60 +220,61 @@ class _MarcadoresState extends State<Marcadores> {
                               padding: EdgeInsets.only(
                                 right: 10,
                               ),
-                              child: Icon(Icons.manage_accounts)),
-                          Container(child: Text('Gestor')),
+                              child: Icon(Icons.app_registration_outlined)),
+                          Container(child: Text('Assinatura')),
                         ],
                       ),
                     ),
                   ),
-                  PopupMenuItem(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Color.fromARGB(255, 0, 0, 0),
-                        textStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(
-                                right: 10,
-                              ),
-                              child: Icon(Icons.send_to_mobile_outlined)),
-                          Container(child: Text('Comandos')),
-                        ],
-                      ),
-                    ),
-                  ),
-                  PopupMenuItem(
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        primary: Color.fromARGB(255, 0, 0, 0),
-                        textStyle: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                              padding: EdgeInsets.only(
-                                right: 10,
-                              ),
-                              child: Icon(Icons.query_stats)),
-                          Container(child: Text('Indicadores')),
-                        ],
-                      ),
-                    ),
-                  ),
+
+                  // PopupMenuItem(
+                  //   child: TextButton(
+                  //     style: TextButton.styleFrom(
+                  //       primary: Color.fromARGB(255, 0, 0, 0),
+                  //       textStyle: const TextStyle(
+                  //         fontSize: 16,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     ),
+                  //     onPressed: () {},
+                  //     child: Row(
+                  //       crossAxisAlignment: CrossAxisAlignment.center,
+                  //       mainAxisAlignment: MainAxisAlignment.start,
+                  //       children: [
+                  //         Container(
+                  //             padding: EdgeInsets.only(
+                  //               right: 10,
+                  //             ),
+                  //             child: Icon(Icons.send_to_mobile_outlined)),
+                  //         Container(child: Text('Comandos')),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  // PopupMenuItem(
+                  //   child: TextButton(
+                  //     style: TextButton.styleFrom(
+                  //       primary: Color.fromARGB(255, 0, 0, 0),
+                  //       textStyle: const TextStyle(
+                  //         fontSize: 16,
+                  //         fontWeight: FontWeight.bold,
+                  //       ),
+                  //     ),
+                  //     onPressed: () {},
+                  //     child: Row(
+                  //       crossAxisAlignment: CrossAxisAlignment.center,
+                  //       mainAxisAlignment: MainAxisAlignment.start,
+                  //       children: [
+                  //         Container(
+                  //             padding: EdgeInsets.only(
+                  //               right: 10,
+                  //             ),
+                  //             child: Icon(Icons.query_stats)),
+                  //         Container(child: Text('Indicadores')),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                 ];
               },
             )),

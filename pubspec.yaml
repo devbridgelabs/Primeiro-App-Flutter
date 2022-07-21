@@ -64,6 +64,10 @@ dependencies:
   table_calendar: ^2.1.0
   graphic:
   quiver: ^3.0.1+1
+  map_launcher: ^2.2.3
+  flutter_svg: ^1.1.1+1
+  pdf: ^3.8.1
+  printing:
   provider:
 
   # The following adds the Cupertino Icons font to your application.
@@ -72,13 +76,23 @@ dependencies:
   http:
   # Google maps flutter
   google_maps_flutter:
+  geolocator: ^7.0.3
+  geocoding: ^2.0.0
+  flutter_polyline_points: ^1.0.0
   google_map_polyline_new: 
   google_maps_flutter_web:
   # flutter_google_places: 
   google_maps_flutter_platform_interface:
   google_maps_webservice:
-  flutter_polyline_points:
   location:
+  google_directions_api: ^0.9.1
+
+
+  # Assinatura
+  get: ^4.6.1
+  image_gallery_saver: ^1.7.1
+  permission_handler: ^9.2.0
+  signature: ^5.0.0
   
   json_serializable: ^6.3.1
 
