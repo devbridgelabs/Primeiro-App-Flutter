@@ -88,13 +88,28 @@ class _CarCrudHomeState extends State<CarCrudHome> {
                 itemCount: cars.length + 1,
                 itemBuilder: (BuildContext context, int index) {
                   if (index == cars.length) {
-                    return RaisedButton(
-                      child: Text('Atualizar'),
-                      onPressed: () {
-                        setState(() {
-                          _queryAll();
-                        });
-                      },
+                    return Center(
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: 0,
+                          bottom: 0,
+                          right: 0,
+                          top: 12,
+                        ),
+                        child: ButtonTheme(
+                          textTheme: ButtonTextTheme.primary,
+                          buttonColor: Color.fromARGB(255, 0, 9, 88),
+                          minWidth: 150,
+                          child: RaisedButton(
+                            onPressed: () {
+                              setState(() {
+                                _queryAll();
+                              });
+                            },
+                            child: Text('Ver lista'),
+                          ),
+                        ),
+                      ),
                     );
                   }
                   return Container(
@@ -129,52 +144,57 @@ class _CarCrudHomeState extends State<CarCrudHome> {
                 },
               ),
             ),
-            Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    child: TextField(
-                      controller: queryController,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Nome do carro',
-                      ),
-                      onChanged: (text) {
-                        if (text.length >= 2) {
-                          setState(() {
-                            _query(text);
-                          });
-                        } else {
-                          setState(() {
-                            carsByName.clear();
-                          });
-                        }
-                      },
-                    ),
-                    height: 100,
-                  ),
-                  Container(
-                    height: 100,
-                    child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemCount: carsByName.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          height: 50,
-                          margin: EdgeInsets.all(2),
-                          child: Center(
-                            child: Text(
-                              '${carsByName[index].id} - ${carsByName[index].name} - ${carsByName[index].miles} km',
-                              style: TextStyle(fontSize: 18),
-                            ),
+            ListView(
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                Center(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        child: TextField(
+                          controller: queryController,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Nome do carro',
                           ),
-                        );
-                      },
-                    ),
+                          onChanged: (text) {
+                            if (text.length >= 2) {
+                              setState(() {
+                                _query(text);
+                              });
+                            } else {
+                              setState(() {
+                                carsByName.clear();
+                              });
+                            }
+                          },
+                        ),
+                        height: 100,
+                      ),
+                      Container(
+                        height: 400,
+                        child: ListView.builder(
+                          padding: const EdgeInsets.all(8),
+                          itemCount: carsByName.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              height: 50,
+                              margin: EdgeInsets.all(2),
+                              child: Center(
+                                child: Text(
+                                  '${carsByName[index].id} - ${carsByName[index].name} - ${carsByName[index].miles} km',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Center(
               child: Column(
@@ -199,13 +219,20 @@ class _CarCrudHomeState extends State<CarCrudHome> {
                       ),
                     ),
                   ),
-                  RaisedButton(
-                    child: Text('Salvar'),
-                    onPressed: () {
-                      String name = nameController.text;
-                      int miles = int.parse(milesController.text);
-                      _insert(name, miles);
-                    },
+                  Center(
+                    child: ButtonTheme(
+                      textTheme: ButtonTextTheme.primary,
+                      buttonColor: Colors.green,
+                      minWidth: 140,
+                      child: RaisedButton(
+                        onPressed: () {
+                          String name = nameController.text;
+                          int miles = int.parse(milesController.text);
+                          _insert(name, miles);
+                        },
+                        child: Text('Salvar'),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -246,14 +273,21 @@ class _CarCrudHomeState extends State<CarCrudHome> {
                           ),
                         ),
                       ),
-                      RaisedButton(
-                        child: Text('Alterar detalhes do carro'),
-                        onPressed: () {
-                          int id = int.parse(idUpdateController.text);
-                          String name = nameUpdateController.text;
-                          int miles = int.parse(milesUpdateController.text);
-                          _update(id, name, miles);
-                        },
+                      Center(
+                        child: ButtonTheme(
+                          textTheme: ButtonTextTheme.primary,
+                          buttonColor: Color.fromARGB(255, 255, 230, 0),
+                          minWidth: 190,
+                          child: RaisedButton(
+                            onPressed: () {
+                              int id = int.parse(idUpdateController.text);
+                              String name = nameUpdateController.text;
+                              int miles = int.parse(milesUpdateController.text);
+                              _update(id, name, miles);
+                            },
+                            child: Text('Alterar detalhes do carro'),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -273,12 +307,19 @@ class _CarCrudHomeState extends State<CarCrudHome> {
                       ),
                     ),
                   ),
-                  RaisedButton(
-                    child: Text('Deletar'),
-                    onPressed: () {
-                      int id = int.parse(idDeleteController.text);
-                      _delete(id);
-                    },
+                  Center(
+                    child: ButtonTheme(
+                      textTheme: ButtonTextTheme.primary,
+                      buttonColor: Color.fromARGB(255, 225, 15, 0),
+                      minWidth: 190,
+                      child: RaisedButton(
+                        onPressed: () {
+                          int id = int.parse(idDeleteController.text);
+                          _delete(id);
+                        },
+                        child: Text('Excluir'),
+                      ),
+                    ),
                   ),
                 ],
               ),
